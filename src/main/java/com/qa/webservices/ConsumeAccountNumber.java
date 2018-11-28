@@ -16,9 +16,11 @@ public class ConsumeAccountNumber implements IConsumeAccNums {
 
 	@PostMapping
 	public String getAccountNumber(Account account) {
+
 		return restTemplate.postForObject(AccountConstants.IP + AccountConstants.NUM_GEN_PORT
 				+ AccountConstants.GET_ACCOUNT_NUMBER_PATH + account.getAccountType(), account,
 				String.class);
 	   }
+	
 
 }

@@ -19,16 +19,18 @@ public class Account {
 	private String lastName;
 	private String accountNumber;
 	private String accountType;
+	private String prize;
 
 	public Account() {
 
 	}
 
-	public Account(String fName, String lName, String accountType) {
+	public Account(String fName, String lName, String accountType, String prize) {
 
 		this.firstName = fName;
 		this.lastName = lName;
 		this.accountType = accountType;
+		this.prize=prize;
 
 	}
 
@@ -75,6 +77,14 @@ public class Account {
 
 	public String getAccountNumber() {
 		return accountNumber;
+	}
+
+	public String getPrize() {
+		return prize;
+	}
+
+	public void setPrize(String prize) {
+		this.prize = prize;
 	}
 
 

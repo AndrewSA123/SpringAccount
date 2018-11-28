@@ -29,6 +29,7 @@ public class AccountService implements IAccountService {
 	@Override
 	public String getPrize(Long id) {
 		return consumePrize.getPrize(repo.findById(id).get().getAccountNumber());
+	
 	}
 	
 	@Override
