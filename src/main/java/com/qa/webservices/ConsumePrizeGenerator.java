@@ -12,7 +12,7 @@ import com.qa.constants.AccountConstants;
 public class ConsumePrizeGenerator implements IConsumePrizeGenerator {
 	
 	  @Autowired
-	   RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 
 	@GetMapping
 	public String getPrize(String accountNumber) {

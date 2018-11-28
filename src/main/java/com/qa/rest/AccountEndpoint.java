@@ -16,7 +16,7 @@ import com.qa.persistence.domain.Account;
 import com.qa.service.IAccountService;
 import com.qa.webservices.IConsumePrizeGenerator;
 
-@RequestMapping("/account")
+@RequestMapping("${base_endpoint}")
 @RestController
 public class AccountEndpoint implements IAccountEndpoint {
 
@@ -27,38 +27,38 @@ public class AccountEndpoint implements IAccountEndpoint {
 	private IConsumePrizeGenerator prizeGen;
 
 	@Override
-	@GetMapping("/getall")
+	@GetMapping("${getall_endpoint}")
 	public Iterable<Account> getAllAccounts() {
 		return service.getAllAccounts();
 	}
 
 	@Override
-	@GetMapping("/find/{id}")
+	@GetMapping("${find_endpoint}")
 	public Optional<Account> findAccount(@PathVariable Long id) {
 		return service.findAccount(id);
 	}
 
 	@Override
-	@PostMapping("/create")
+	@PostMapping("${create_endpoint}")
 	public Account createAccount(@RequestBody Account account) {
 		return service.createAccount(account);
 	}
 
 
 	@Override
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("${delete_endpoint}")
 	public String deleteAccount(@PathVariable Long id) {
 		return service.deleteAccount(id);
 	}
 
 	@Override
-	@PutMapping("/update/{id}")
+	@PutMapping("${update_endpoint}")
 	public String updateAccount(@PathVariable Long id, @RequestBody Account account) {
 		return service.updateAccount(id, account);
 	}
 
 	@Override
-	@GetMapping("/getprize/{id}")
+	@GetMapping("${getprize_endpoint}")
 	public String getPrize(@PathVariable("id") String accountNumber) {
 		return prizeGen.getPrize(accountNumber);
 	}
