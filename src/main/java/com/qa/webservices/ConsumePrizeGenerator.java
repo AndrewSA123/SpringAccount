@@ -35,7 +35,16 @@ public class ConsumePrizeGenerator implements IConsumePrizeGenerator {
 		List<Account> accounts = Lists.newArrayList(repo.findAll());
 		Account account=accounts.stream().filter(a -> a.getAccountNumber().equals(accountNumber)).findFirst().get();
 		account.setPrize(prize);
-		jmsTemplate.convertAndSend("accountQueue",account);
+		
+		com.qa.ATS.Account accountToSend = new com.qa.ATS.Account();
+		accountToSend.setID(account.getID());
+		accountToSend.setAccountNumber(account.getAccountNumber());
+		accountToSend.setAccountType(account.getAccountType());
+		accountToSend.setFirstName(account.getFirstName());
+		accountToSend.setLastName(account.getLastName());
+		accountToSend.setPrize(account.getPrize());
+		
+		jmsTemplate.convertAndSend("accountQueue",accountToSend);
 
 		return prize;
 	   }
