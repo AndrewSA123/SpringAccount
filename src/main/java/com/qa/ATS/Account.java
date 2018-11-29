@@ -1,6 +1,8 @@
 package com.qa.ATS;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable{
 
 	private Long ID;
 	private String firstName;
