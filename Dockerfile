@@ -1,7 +1,7 @@
 FROM java:8
 ARG artifact_id
 ARG version
-ENV artifact=${artifact_id}-${version}.war
+ENV artifact=${artifact_id}-${version}.jar
 COPY target/${artifact} /opt/${artifact}
 EXPOSE 8080
-ENTRYPOINT java -war /opt/${artifact}
+ENTRYPOINT java -jar /opt/${artifact}

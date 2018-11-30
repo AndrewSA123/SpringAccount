@@ -1,0 +1,46 @@
+version: '3'
+services:
+  node:
+    container_name: node
+    image: node
+  activemq:
+    container_name: activemq
+    image: webcenter/activemq
+  springaccount:
+    container_name: SpringAccount
+    build:
+      context: SpringAccount
+      args:
+      - artifact_id=account-api
+      - version=0.0.1-SNAPSHOT
+  mongodb:
+    container_name: mongodb
+    image: mongo
+  jmsconsumeraccountapi:
+    container_name: JMSConsumerAccountAPI
+    build:
+      context: JMSConsumerAccountAPI
+      args:
+      - artifact_id=JMSConsumer
+      - version=0.0.1-SNAPSHOT
+  springprizegen:
+    container_name: SpringPrizeGen
+    build:
+      context: SpringPrizeGen
+      args:
+      - artifact_id=prizegeneration
+      - version=0.0.1-SNAPSHOT
+  accountnumbergen:
+    container_name: AccountNumberGen
+    build:
+      context: AccountNumberGen
+      args:
+      - artifact_id=AccountNumGenerator
+      - version=0.0.1-SNAPSHOT
+  accountappspringfrontend:
+    container_name: AccountAppSpringFrontend
+    build:
+      context: AccountAppSpringFrontend
+
+
+
