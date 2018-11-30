@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +17,6 @@ import com.qa.constantsTests.Constants;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.IAccountRepo;
 import com.qa.service.AccountService;
-import com.qa.service.IAccountService;
 import com.qa.webservices.IConsumeAccNums;
 import com.qa.webservices.IConsumePrizeGenerator;
 
@@ -48,10 +46,6 @@ public class ServiceTests {
 		MockAccount = new Account();
 	}
 	
-	@After
-	public void tearDown() {
-		Account MockAccount = null;
-	}
 	
 	@Test
 	public void testGetPrize() {
@@ -82,7 +76,7 @@ public class ServiceTests {
 	
 	@Test
 	public void testGetAllAccounts() {
-		List<Account> acclist = new ArrayList();
+		List<Account> acclist = new ArrayList<Account>();
 		acclist.add(MockAccount);
 		Mockito.when(repo.findAll()).thenReturn(acclist);
 		Assert.assertEquals(acclist, service.getAllAccounts());
