@@ -3,6 +3,7 @@ package com.qa.rest;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.qa.webservices.IConsumePrizeGenerator;
 
 @RequestMapping("${base_endpoint}")
 @RestController
+@CrossOrigin
 public class AccountEndpoint implements IAccountEndpoint {
 
 	@Autowired
