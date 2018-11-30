@@ -12,10 +12,10 @@ public class AccountConstants {
 	public static final String ACCOUNT_UPDATED = "Account updated!";
 	public static final String GET_PRIZE_PATH = "/prize/get/";
 	public static final String GET_ACCOUNT_NUMBER_PATH = "/accountnumber/create/";
-	public static final String PrizeGenIP = "http://SpringPrizeGen:";
-	public static final String AccountNumGenIP = "http://AccountNumberGen:";
+	public static final String PrizeGenIP = "http://localhost:";
+	public static final String AccountNumGenIP = "http://localhost:";
 	public static final String BASE_PORT = "8080";
-	public static final String NUM_GEN_PORT = "8080";
-	public static final String PRIZE_GEN_PORT = "8080";
+	public static final String NUM_GEN_PORT = "8082";
+	public static final String PRIZE_GEN_PORT = "8083";
 
 }
