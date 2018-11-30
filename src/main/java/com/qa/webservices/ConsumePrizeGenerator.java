@@ -30,7 +30,8 @@ public class ConsumePrizeGenerator implements IConsumePrizeGenerator {
 	@GetMapping
 	public String getPrize(String accountNumber) {
 		String prize= restTemplate.getForObject(
-				AccountConstants.IP + AccountConstants.PRIZE_GEN_PORT + AccountConstants.GET_PRIZE_PATH + accountNumber,
+				AccountConstants.PrizeGenIP + AccountConstants.PRIZE_GEN_PORT + AccountConstants.GET_PRIZE_PATH
+						+ accountNumber,
 				String.class);
 		List<Account> accounts = Lists.newArrayList(repo.findAll());
 		Account account=accounts.stream().filter(a -> a.getAccountNumber().equals(accountNumber)).findFirst().get();
